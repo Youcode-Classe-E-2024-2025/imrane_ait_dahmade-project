@@ -27,11 +27,11 @@
         </ul>
     </nav>
     <div class=" flex flex-row ">
-    <div class="card w-1/3 pb-4 m-4 ">
+    <div class="card w-1/3 pb-4 m-9  ">
   <img src="https://chef-de-projet.fr/wp-content/uploads/2021/11/Planification-1280x640.png" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title text-2xl text-green-600">welecom to our Website</h5>
-    <p class="card-text text-xl">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text text-xl">tu peux generer votre planification de projet ici</p>
     <a href="#" class="btn btn-primary bg-green-200 mt-4 text-xl px-6 border-transparent">log-in</a>
   </div>
 </div>
