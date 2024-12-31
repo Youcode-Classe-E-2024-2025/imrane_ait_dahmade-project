@@ -9,7 +9,7 @@
 
 </head>
 <body >
-    <h1  class="jumbotron" >log in</h1>
+    <h1  class="jumbotron bg-green-300"></h1>
     <form class="w-1/3 justify-self-center self-center">
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
@@ -24,7 +24,11 @@
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="flex flex-col">
+  <button type="submit" class="btn btn-primary bg-green-300">Submit</button>
+  <a  class=" text-green-400 w-14 " href="#">sign-up</a>
+  </div>
 </form>
+
 </body>
 </html>
