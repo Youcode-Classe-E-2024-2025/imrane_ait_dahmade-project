@@ -14,3 +14,6 @@ boostrap pour le responsive et utiliser des structures existe deja
 
 3)user case :
 https://drive.google.com/file/d/1XzaiWw6XaTiYHftxJg42zZY5cNIL1gXx/view?usp=sharing
+
+4)diagrame de class :
+https://drive.google.com/file/d/1BjMRJnAJNCZE2KamVvY9LaI8Cs4TRH4I/view?usp=sharing
