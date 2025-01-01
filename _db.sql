@@ -20,3 +20,12 @@ CREATE TABLE projets (
   id_chef_de_projet VARCHAR(7) UNIQUE NOT NULL
 );
 
+CREATE Table tache (
+    id_tache TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY ,
+    nom_de_tache VARCHAR(255) NOT NULL,
+    description TEXT not null ,
+   type_de_tache ENUM('design', 'script', 'architecture', 'testing') NOT NULL,
+    tags ENUM('bug', 'feature', 'basique', 'designing', 'testing'),
+    status ENUM('to_do', 'doing', 'done') DEFAULT 'to_do'
+
+)
