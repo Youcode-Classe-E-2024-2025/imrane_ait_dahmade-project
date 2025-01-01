@@ -11,3 +11,12 @@
   type_user ENUM('chef_de_projet', 'un_employe') DEFAULT 'un_employe'
 );
 
+CREATE TABLE projets (
+  id_projet TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY,
+  nom_de_projet VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL,
+  date_creation DATETIME DEFAULT CURRENT_TIMESTAMP,
+  date_deadline DATETIME NOT NULL,
+  id_chef_de_projet VARCHAR(7) UNIQUE NOT NULL
+);
+
