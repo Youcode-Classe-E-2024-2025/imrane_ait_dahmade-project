@@ -8,7 +8,7 @@ class user {
    public $password ;
    public $date_de_naissance ;
    public $type_user ;
-
+  
    public function __construct($id_user,$nom,$email,$password,$date_de_naissance,$type_user)
    {
      $this->id_user = $id_user;
@@ -22,7 +22,7 @@ class user {
     require_once "./__connction.php";
 
    echo "hello " . $nom ." your id " . $id_user ." your email " . $email . " your " . $password . " happy " . $date_de_naissance . " and your job is " . $type_user;
-   $password = hash($password,PASSWORD_DEFAULT);
+   $password = password_hash($password,PASSWORD_DEFAULT);
    $requet_add_sql = "INSERT INTO user (id, nom, email, password, date_naissance, type_user) 
    VALUES (:id, :nom, :email, :password, :date_naissance, :type_user);";
 $query = $conn->prepare($requet_add_sql);
@@ -35,9 +35,23 @@ $query->execute([
 ':type_user' => $type_user,
 ]);
 }
-   public function log_in_user($email,$password){
-    
-   }
+
+public function log_in_user($email, $password) {
+    require_once "./__connction.php"; // Ensure the file path is correct
+
+    $requet_select_sql = "SELECT * FROM user WHERE email = :email"; // No quotes around :email
+
+    $query = $conn->prepare($requet_select_sql);
+    $query->execute([':email' => $email]); // Bind the email parameter
+    $user = $query->fetch(PDO::FETCH_ASSOC); // Fetch the user details
+$password =password_hash($password,PASSWORD_DEFAULT);
+    if ($user && password_verify($password, $user['password'])) {
+        echo "Hello, welcome Mr.";
+    } else {
+        echo "Incorrect email or password.";
+    }
+}
+
 
 
 
