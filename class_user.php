@@ -33,10 +33,8 @@ $query->execute([
 ':type_user' => $type_user,
 ]);
 
-
-    
-   
    }
+
 
 
 
