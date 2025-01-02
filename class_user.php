@@ -20,7 +20,9 @@ class user {
    }
    public function ajouter_user($id_user,$nom,$email,$password,$date_de_naissance,$type_user){
     require_once "./__connction.php";
+
    echo "hello " . $nom ." your id " . $id_user ." your email " . $email . " your " . $password . " happy " . $date_de_naissance . " and your job is " . $type_user;
+   $password = hash($password,PASSWORD_DEFAULT);
    $requet_add_sql = "INSERT INTO user (id, nom, email, password, date_naissance, type_user) 
    VALUES (:id, :nom, :email, :password, :date_naissance, :type_user);";
 $query = $conn->prepare($requet_add_sql);
@@ -32,7 +34,9 @@ $query->execute([
 ':date_naissance' => $date_de_naissance,
 ':type_user' => $type_user,
 ]);
-
+}
+   public function log_in_user($email,$password){
+    
    }
 
 
