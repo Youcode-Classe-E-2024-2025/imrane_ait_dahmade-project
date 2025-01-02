@@ -20,6 +20,8 @@ CREATE TABLE projets (
   id_chef_de_projet VARCHAR(7) UNIQUE NOT NULL
 );
 
+
+
 CREATE Table tache (
     id_tache TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY ,
     nom_de_tache VARCHAR(255) NOT NULL,
@@ -29,3 +31,26 @@ CREATE Table tache (
     status ENUM('to_do', 'doing', 'done') DEFAULT 'to_do'
 
 )
+
+INSERT INTO User (id, nom, email, password, date_naissance, type_user)
+VALUES 
+('U00001', 'Alice Dupont', 'alice.dupont@example.com', '$2y$10$e1CwqLhYW1EmnE5k9t5WnO.W.JG3UOoPnq3OiHsEfyRbHn1trGQpa', '1990-03-12', 'chef_de_projet'),
+('U00002', 'Bob Martin', 'bob.martin@example.com', '$2y$10$Ln5.OwRMccyE22OtnQVHhe97ZK8wIjoaB/CEgzRnEBCtFNd63CmTm', '1985-07-23', 'un_employe'),
+('U00003', 'Charlie Faure', 'charlie.faure@example.com', '$2y$10$DshA7uEtlWpECG4WgM/BCe84Gaf7HOEBlFhxBqq.L37cnBBK2LgBe', '1992-11-15', 'un_employe');
+
+INSERT INTO projets (nom_de_projet, description, date_deadline, id_chef_de_projet)
+VALUES
+('Gestion des Stocks', 'Développement d\'une application pour gérer les stocks.', '2025-06-01 23:59:59', 'U00001');
+ 
+INSERT INTO projets (nom_de_projet, description, date_deadline, id_chef_de_projet)
+VALUES('Site E-commerce', 'Création d\'un site de vente en ligne.', '2025-08-15 23:59:59', 'U00001');
+
+INSERT INTO projets (nom_de_projet, description, date_deadline, id_chef_de_projet)
+VALUES
+('Application Mobile', 'Développement d\'une application mobile pour une entreprise.', '2025-12-30 23:59:59', 'U00001');
+
+ALTER Table projets
+DROP  CONSTRAINT  id_chef_de_projet ;
+ALTER TABLE projets
+ADD CONSTRAINT fk_id_chef_de_projet
+FOREIGN KEY (id_chef_de_projet) REFERENCES User(id);

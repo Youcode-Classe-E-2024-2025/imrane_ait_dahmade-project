@@ -37,20 +37,32 @@ $query->execute([
 }
 
 public function log_in_user($email, $password) {
-    require_once "./__connction.php"; // Ensure the file path is correct
+    require_once "./__connction.php";
 
-    $requet_select_sql = "SELECT * FROM user WHERE email = :email"; // No quotes around :email
+    try {
+        $requet_select_sql = "SELECT * FROM user WHERE email = :email";
+        $query = $conn->prepare($requet_select_sql);
+        $query->execute([':email' => $email]);
+        $user = $query->fetch(PDO::FETCH_ASSOC);
 
-    $query = $conn->prepare($requet_select_sql);
-    $query->execute([':email' => $email]); // Bind the email parameter
-    $user = $query->fetch(PDO::FETCH_ASSOC); // Fetch the user details
-$password =password_hash($password,PASSWORD_DEFAULT);
-    if ($user && password_verify($password, $user['password'])) {
-        echo "Hello, welcome Mr.";
-    } else {
-        echo "Incorrect email or password.";
+        if ($user) {
+            // echo "Utilisateur trouvé : " . htmlspecialchars($user['email']) . "<br>";
+            // echo "Hash enregistré : " . htmlspecialchars($user['password']) . "<br>";
+
+            if (password_verify($password, $user['password'])) {
+                echo "Login réussi, bienvenue " . htmlspecialchars($user['email']) . "!";
+            } else {
+                echo "Mot de passe incorrect.";
+            }
+        } else {
+            echo "Aucun utilisateur trouvé avec cet email.";
+        }
+    } catch (PDOException $e) {
+        echo "Erreur : " . $e->getMessage();
     }
 }
+
+
 
 
 

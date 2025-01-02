@@ -7,4 +7,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     $user = new user(null,null,$EMAIL,$password,null,null);
     $user ->log_in_user($EMAIL,$password);
+    
+
+
 }
