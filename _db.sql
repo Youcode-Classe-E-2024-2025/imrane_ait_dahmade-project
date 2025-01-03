@@ -54,3 +54,18 @@ DROP  CONSTRAINT  id_chef_de_projet ;
 ALTER TABLE projets
 ADD CONSTRAINT fk_id_chef_de_projet
 FOREIGN KEY (id_chef_de_projet) REFERENCES User(id);
+
+ALTER Table tache 
+ADD COLUMN id_projet TIMESTAMP DEFAULT CURRENT_TIMESTAMP ;
+ALTER TABLE tache
+Foreign Key (id_projet) REFERENCES projets(id_projet);
+
+ALTER Table tache 
+drop COLUMN id_projet ;
+-- Ajouter la colonne id_projet
+ALTER TABLE tache 
+ADD COLUMN id_projet TIMESTAMP ;
+
+-- Ajouter la contrainte de clé étrangère
+ALTER TABLE tache 
+ADD CONSTRAINT fk_id_projet  FOREIGN KEY (id_projet) REFERENCES projets(id_projet);
