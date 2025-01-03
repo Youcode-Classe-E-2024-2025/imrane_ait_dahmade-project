@@ -24,6 +24,12 @@
                 <p><strong>Description:</strong> Description détaillée du projet.</p>
                 <p><strong>Date de Début:</strong> 01/01/2023</p>
                 <p><strong>Date de Fin:</strong> 31/12/2023</p>
+                <p><strong>chef_projet</strong>imrane</p>
+                <p><strong>les membranes d'equipes</strong><ul>
+                    <li>imrane</li>
+                    <li>apache_get_modules</li>
+                   
+                </ul></p>
             </div>
         </div>
 

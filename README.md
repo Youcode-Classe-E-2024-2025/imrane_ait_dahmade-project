@@ -8,9 +8,11 @@ La plateforme vise à faciliter la gestion et la collaboration des équipes en o
    https://drive.google.com/file/d/1bVQSAwJwMxba2ZnjkZpvOSl77fwV6oix/view?usp=sharing
 
 2)le technologie ajouter :
-html pour structure les pages
-tailwind pour style des pages
-boostrap pour le responsive et utiliser des structures existe deja
+html pour structure les pages.
+
+tailwind pour style des pages.
+
+boostrap pour le responsive .
 
 3)user case :
 https://drive.google.com/file/d/1XzaiWw6XaTiYHftxJg42zZY5cNIL1gXx/view?usp=sharing
