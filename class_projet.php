@@ -18,7 +18,7 @@ class Projet {
     }
 
     // Créer un projet
-    public function creationProjet($pdo) {
+    public function creationProjet($pdo){
         try {
             $query = "INSERT INTO projet (nom_de_projet, description, date_creation, date_deadline, nom_chef) 
                       VALUES (:nomDeProjet, :description, :dateCreation, :dateDeadline, :nomChef)";
