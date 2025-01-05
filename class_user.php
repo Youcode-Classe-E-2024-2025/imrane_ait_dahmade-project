@@ -34,7 +34,13 @@ $query->execute([
 ':date_naissance' => $date_de_naissance,
 ':type_user' => $type_user,
 ]);
+ 
 }
+
+
+
+
+
 
 public function log_in_user($email, $password) {
     require_once "./__connction.php";

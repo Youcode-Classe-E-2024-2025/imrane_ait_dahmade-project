@@ -1,3 +1,8 @@
+<?php
+  include_once "../__connction.php";
+  include_once "../class_projet.php";
+   
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,16 +25,12 @@
         <!-- Informations du Projet -->
         <div class="card mb-4">
             <div class="card-body">
-                <h2>Nom du Projet</h2>
-                <p><strong>Description:</strong> Description détaillée du projet.</p>
-                <p><strong>Date de Début:</strong> 01/01/2023</p>
-                <p><strong>Date de Fin:</strong> 31/12/2023</p>
-                <p><strong>chef_projet</strong>imrane</p>
-                <p><strong>les membranes d'equipes</strong><ul>
-                    <li>imrane</li>
-                    <li>apache_get_modules</li>
-                   
-                </ul></p>
+            <?php
+            $projet = new Projet() ;
+            $projet->afficherProjets($conn);
+            echo $projet->afficherProjets($conn);
+            
+            ?>
             </div>
         </div>
 

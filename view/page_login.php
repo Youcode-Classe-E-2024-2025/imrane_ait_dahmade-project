@@ -10,7 +10,7 @@
 </head>
 <body >
     <h1  class="jumbotron bg-green-300"></h1>
-    <form method="POST" action="../action_log_in.php" class="w-1/3 justify-self-center self-center">
+    <form method="POST" action="../controller/action_log_in.php" class="w-1/3 justify-self-center self-center">
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">

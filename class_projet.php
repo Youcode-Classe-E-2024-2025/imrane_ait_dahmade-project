@@ -6,7 +6,7 @@ class Projet {
     private $dateCreation;
     private $dateDeadline;
     private $nomChef;
-
+    private $idProjet;
     // Constructeur
     public function __construct( $nomDeProjet = null, $description = null, $dateCreation = null, $dateDeadline = null, $nomChef = null) {
    
@@ -75,7 +75,8 @@ class Projet {
     // Afficher tous les projets
     public static function afficherProjets($pdo) {
         try {
-            $query = "SELECT * FROM projet";
+
+            $query = "SELECT * FROM projet where type = 'public'";
             $stmt = $pdo->query($query);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {

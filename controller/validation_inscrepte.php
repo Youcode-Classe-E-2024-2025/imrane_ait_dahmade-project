@@ -1,5 +1,5 @@
 <?php
-include_once "./class_user.php";
+include_once "../class_user.php";
 
 if($_SERVER['REQUEST_METHOD']=== 'POST'){
   $NOM = $_POST['nom'];

@@ -69,3 +69,7 @@ ADD COLUMN id_projet TIMESTAMP ;
 -- Ajouter la contrainte de clé étrangère
 ALTER TABLE tache 
 ADD CONSTRAINT fk_id_projet  FOREIGN KEY (id_projet) REFERENCES projets(id_projet);
+
+ USE  gestionnaire_avance;
+ALTER TABLE projets 
+ADD COLUMN type ENUM('public','prive') DEFAULT 'public';
