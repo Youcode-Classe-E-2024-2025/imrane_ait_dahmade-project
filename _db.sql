@@ -1,22 +1,21 @@
- CREATE DATABASE gestionnaire_avance ;
+ CREATE DATABASE PROJET ;
   
-  USE  gestionnaire_avance;
+  USE  PROJET;
   
-  CREATE TABLE User (
-  id VARCHAR(7) UNIQUE PRIMARY KEY,
+  CREATE TABLE Users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
   nom VARCHAR(255) NOT NULL,
   email VARCHAR(255) UNIQUE NOT NULL,
   password VARCHAR(255) NOT NULL,
-  date_naissance DATE DEFAULT '2000-01-01',
   type_user ENUM('chef_de_projet', 'un_employe') DEFAULT 'un_employe'
 );
 
 CREATE TABLE projets (
-  id_projet TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY,
-  nom_de_projet VARCHAR(255) NOT NULL,
+  id_projet INT AUTO_INCREMENT PRIMARY KEY,
+  nom VARCHAR(255) NOT NULL,
   description TEXT NOT NULL,
-  date_creation DATETIME DEFAULT CURRENT_TIMESTAMP,
-  date_deadline DATETIME NOT NULL,
+  date_creation DATE NOT NULL,
+  date_deadline DATE NOT NULL,
   id_chef_de_projet VARCHAR(7) UNIQUE NOT NULL
 );
 
@@ -73,3 +72,6 @@ ADD CONSTRAINT fk_id_projet  FOREIGN KEY (id_projet) REFERENCES projets(id_proje
  USE  gestionnaire_avance;
 ALTER TABLE projets 
 ADD COLUMN type ENUM('public','prive') DEFAULT 'public';
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
