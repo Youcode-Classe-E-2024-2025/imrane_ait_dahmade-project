@@ -12,7 +12,7 @@
 
 <body>
     <div class="jumbotron bg-green-300 "></div>
-    <form action="../controller/validation_inscrepte.php" method="POST" class="w-1/3 justify-self-center shadow-lg space-y-4 p-10 gap-4 rounded-xl">
+    <form action="../index.php" method="POST" class="w-1/3 justify-self-center shadow-lg space-y-4 p-10 gap-4 rounded-xl">
         <div class="mb-3">
         <input class="hidden" name="register" value="register">
             <label for="exampleFormControlInput1" class="form-label">nom_prenom</label>
@@ -37,7 +37,7 @@
         </div>
         <select name="type_user" class="form-select" aria-label="Default select example">
             <option value="chef_de_projet">chef_de_projet</option>
-            <option value="un_employe"> membre d équipe</option>
+            <option value="employe"> membre d équipe</option>
         </select>
         <div>
             <button type="submit" class="btn btn-primary bg-green-300">creation_de_compte</button>

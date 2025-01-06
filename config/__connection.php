@@ -1,17 +1,16 @@
 <?php
-require_once __DIR__ . '/config.php';
+require_once __DIR__ . 'config.php';
 
 class DataBaseConnection{
   
   private static ?DataBaseConnection $instance = null; 
   private PDO $connection;
    
-  public function __construct() {
+  private function __construct() {
     try {
         $dsn = 'mysql:host=' . DB_HOSTNAME . ';dbname=' . DB_NAME . ';charset=utf8';
         $this->connection = new PDO($dsn, DB_USERNAME, DB_PASSWORD);
         $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo 'fdhdgdf';
     } catch (PDOException $e) {
         die('Connection failed: ' . $e->getMessage());
     }

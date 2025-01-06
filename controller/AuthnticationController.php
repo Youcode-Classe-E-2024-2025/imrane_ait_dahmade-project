@@ -13,13 +13,13 @@ class AuthenticationController
     public function register(array $requestData): void
     {
         try {
-            // Vérification des champs obligatoires
+            
             if (empty($requestData['name']) || empty($requestData['email']) || empty($requestData['password'])) {
                 echo "All fields are required.";
                 return;
             }
 
-            // Création d'un nouvel utilisateur
+          
             $user = new User(
                 null,
                 $requestData['name'],
@@ -27,7 +27,7 @@ class AuthenticationController
                 $requestData['password']
             );
 
-            // Appel au modèle pour l'enregistrement
+          
             if ($this->userModel->register($user)) {
                 echo "Registration successful!";
             } else {
@@ -38,17 +38,17 @@ class AuthenticationController
         }
     }
 
-    // Méthode pour gérer la connexion
+
     public function login(array $requestData): void
     {
         try {
-            // Vérification des champs obligatoires
+            
             if (empty($requestData['email']) || empty($requestData['password'])) {
                 echo "Email and password are required.";
                 return;
             }
 
-            // Appel au modèle pour la connexion
+         
             $user = $this->userModel->login($requestData['email'], $requestData['password']);
 
             if ($user) {
@@ -61,7 +61,7 @@ class AuthenticationController
         }
     }
 
-    // Méthode principale pour gérer l'authentification
+    
     public function handlauth(string $action, array $requestData): void
     {
         if ($action === 'register') {

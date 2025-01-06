@@ -27,8 +27,12 @@ class User
     {
         return $this->email;
     }
-    public function getType(): TypeUser
+
+    public function getPassword(): string
     {
+        return $this->password;
+    }
+    public function getType(): TypeUser{
         return $this->type;
     }
 
@@ -47,5 +51,3 @@ class User
         $this->password = $password;
     }
 }
-
-?>
