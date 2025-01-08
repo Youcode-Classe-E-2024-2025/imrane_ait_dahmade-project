@@ -37,7 +37,7 @@
         </div>
         <select name="type_user" class="form-select" aria-label="Default select example">
             <option value="chef_de_projet">chef_de_projet</option>
-            <option value="employe"> membre d équipe</option>
+            <option value="un_employe"> membre d équipe</option>
         </select>
         <div>
             <button type="submit" class="btn btn-primary bg-green-300">creation_de_compte</button>

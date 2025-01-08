@@ -1,11 +1,5 @@
 <?php
 
-require_once '../enums/Typetask.php';
-require_once '../enums/Status.php';
-require_once 'Employee.php';
-require_once 'Tag.php';
-
-
 class Task {
     private int $id;
     private string $name;

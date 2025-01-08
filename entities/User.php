@@ -1,7 +1,4 @@
 <?php
-require_once "../enums/TypeUser.php";
-
-
 
 class User
 {
@@ -9,7 +6,7 @@ class User
     private string $name;
     private string $email;
     private string $password;
-    private TypeUser $type;
+    private string $type;
     public function __construct($name, $email, $password, $type)
     {
         $this->name = $name;
@@ -22,6 +19,12 @@ class User
     {
         return $this->name;
     }
+    public function getid():int {
+        return $this->id;
+    }
+    public function setId($id):void{
+        $this->id = $id;
+    }
 
     public function getemail(): string
     {
@@ -32,10 +35,10 @@ class User
     {
         return $this->password;
     }
-    public function getType(): TypeUser{
+    public function getType(): string{
         return $this->type;
     }
-
+  
     public function setName($name): void
     {
         $this->name = $name;
@@ -51,3 +54,4 @@ class User
         $this->password = $password;
     }
 }
+?>

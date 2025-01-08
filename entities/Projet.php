@@ -1,8 +1,5 @@
 <?php
 
-require_once '../enums/TypeProjet.php';
-require_once './ChefProject.php';
-
 class Projet {
     private int $id;
     private string $nom;

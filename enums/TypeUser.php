@@ -1,8 +1,8 @@
 <?php
 enum TypeUser: string
 {
-    case CHEFPROJET = 'chef_de_projet';
-    case EMPLOYEE = 'un_employe';
+    case chef_de_projet = 'chef_de_projet';
+    case un_employe = 'un_employe';
 }
 
 ?>

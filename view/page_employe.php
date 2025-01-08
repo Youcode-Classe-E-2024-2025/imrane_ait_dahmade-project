@@ -14,10 +14,7 @@
 </head>
 <body>
     <nav  class="navbar navbar-expand-lg bg-body-tertiary p-6" >
-        <!-- <?php
-           echo "Welcom mr " .$user['nom'] ;
-         ?> -->
-         
+     
     </nav>
 
 </body>
