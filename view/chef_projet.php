@@ -41,7 +41,8 @@ $projets = $projetController->afficherProjets($nomUtilisateur);
     <nav class="navbar navbar-expand-lg navbar-light text-white py-3">
         <div class="container-fluid">
             <a class="navbar-brand text-white" href="#">Chef de Projet : <?php echo htmlspecialchars($nomUtilisateur) ?></a>
-            <button class="btn btn-primary bg-green-700 hover:bg-green-400 border-none" data-bs-toggle="modal" data-bs-target="#projectModal">Ajouter un Nouveau Projet</button>
+            <a class="btn btn-primary bg-green-700 hover:bg-green-400 border-none" href="#">dachbord</a>
+            <button class="btn btn-primary bg-green-700 hover:bg-green-400 border-none" data-bs-toggle="modal" data-bs-target="#projectModal">Ajouter un Nouveau Projet</button> 
         </div>
     </nav>
 
@@ -59,10 +60,15 @@ $projets = $projetController->afficherProjets($nomUtilisateur);
                             <p><?php echo htmlspecialchars($projet['description']); ?></p>
                             <p>Date de création : <?php echo htmlspecialchars($projet['date_creation']); ?></p>
                             <p>Date limite : <?php echo htmlspecialchars($projet['date_deadline']); ?></p>
-                            <button class="btn btn-sm btn-secondary " onclick="viewProjectDetails(
-                                '<?php echo htmlspecialchars($projet['nom']); ?>',
-                                '<?php echo htmlspecialchars($projet['description']); ?>'
-                            )">Voir les détails</button>
+                            <p>type of Project: <?php echo htmlspecialchars($projet['TypeProjet']); ?></p>
+                            <div class="flex flex-row gap-4 p-2">
+                            <button class="btn  btn-primary bg-red-700 " onclick="suprimerProjet(
+                                '<?php echo htmlspecialchars($projet['nom']); ?>'
+                            )">suprimer le projet</button>
+                            <button class="btn btn-primary bg-green-700 hover:bg-green-400 border-none" onclick="modifierEnProjet(
+                                '<?php echo htmlspecialchars($projet['nom']); ?>'
+                            )">modifier sur le projet</button>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
@@ -107,6 +113,12 @@ $projets = $projetController->afficherProjets($nomUtilisateur);
                             <label for="dateDeadline" class="form-label">Date Limite :</label>
                             <input type="date" id="dateDeadline" name="dateDeadline" class="form-control" required>
                         </div>
+                        <div  class="mb-3">
+                        <select>
+                            <option value="public">public</option>
+                            <option value="prive">prive</option>
+                        </select>
+                        </div>
 
                         <!-- Bouton soumettre -->
                         <button type="submit" name="ajouterProjet" class="btn btn-success">Ajouter</button>
@@ -116,14 +128,7 @@ $projets = $projetController->afficherProjets($nomUtilisateur);
         </div>
     </div>
 
-    <!-- Script -->
-    <script>
-        // Afficher les détails d'un projet
-        function viewProjectDetails(name, description) {
-            alert(`Nom du Projet : ${name}\nDescription : ${description}`);
-        }
-    </script>
-
+ 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

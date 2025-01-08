@@ -72,3 +72,6 @@ INSERT INTO Projets (nom, description, date_creation, date_deadline, nomChefProj
 ('Site Web E-commerce', 'Création d\'une plateforme de vente en ligne.', '2025-01-01', '2025-03-01', 'Excepteur in corrupt'),
 ('Application Mobile', 'Développement d\'une application mobile pour la gestion des tâches.', '2025-01-05', '2025-04-01', 'Excepteur in corrupt'),
 ('Migration Cloud', 'Migrer les serveurs vers une infrastructure cloud.', '2025-01-10', '2025-02-28', 'Excepteur in corrupt');
+
+ALTER Table  Projets 
+ADD COLUMN TypeProjet ENUM('public','prive') DEFAULT 'public';

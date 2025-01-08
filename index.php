@@ -51,30 +51,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     // }
 }
 
-
 //************** */
-
-require_once __DIR__ . '/model/ProjetModel.php';
-require_once __DIR__ . '/controller/projetController.php';
-
-session_start();
-
-if (isset($_SESSION['user_name'])) {
-    $nomUtilisateur = $_SESSION['user_name']; // Nom ou identifiant de l'utilisateur connecté
-
-    $projetModel = new ProjetModel();
-    $projetController = new projetController($projetModel);
-
-    $projets = $projetController->afficherProjets($nomUtilisateur);
-
-    // Affichage des projets (peut être remplacé par du HTML dynamique)
-    foreach ($projets as $projet) {
-        echo "<p>Projet : " . htmlspecialchars($projet['nom']) . "</p>";
-        echo "<p>Description : " . htmlspecialchars($projet['description']) . "</p>";
-        echo "<hr>";
-    }
-} else {
-    echo "Utilisateur non connecté.";
-}
 
 ?>

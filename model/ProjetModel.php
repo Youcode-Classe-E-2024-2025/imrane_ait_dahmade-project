@@ -12,14 +12,15 @@ class ProjetModel{
     }
 
     public function ajouterProjet(Projet $projet) {
-        $requet = "INSERT INTO projets (nom, description, date_creation, date_deadline, nomChefProjet) VALUES (:NOM, :description, :date_creation, :date_deadline, :nameChefProjet);";
+        $requet = "INSERT INTO projets (nom, description, date_creation, date_deadline, nomChefProjet ,TypeProjet ) VALUES (:NOM, :description, :date_creation, :date_deadline, :nameChefProjet , :TypeProjet);";
         $stmt = $this->conn->prepare($requet);
         return $stmt->execute([
             ':NOM' => $projet->getNom(),
             ':description' => $projet->getDescription(),
             ':date_creation' => $projet->getDateCreation(),
             ':date_deadline' => $projet->getDeadline(),
-            ':nameChefProjet' => $projet->getChef()
+            ':nameChefProjet' => $projet->getChef(),
+            ':TypeProjet' =>$projet->getType()
         ]);
     }
     public function affichageProjet(){
