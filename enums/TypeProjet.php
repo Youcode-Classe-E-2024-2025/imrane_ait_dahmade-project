@@ -1,8 +1,7 @@
 <?php
 
-enum TypeProjet: string {
+enum TypeProjet: string
+{
     case PUBLIC = 'public';
-    case PRIVEE = 'privee';
+    case PRIVEE = 'prive';
 }
-
-?>

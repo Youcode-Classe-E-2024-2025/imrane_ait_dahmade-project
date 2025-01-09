@@ -6,7 +6,7 @@ class Projet {
     private string $description;
     private DateTime $dateCreation;
     private DateTime $deadline;
-    private ChefProject $chef;
+    private string $chef;
     private array $taches = [];
     private TypeProjet $type;
 
@@ -16,7 +16,7 @@ class Projet {
         string $description,
         DateTime $dateCreation,
         DateTime $deadline,
-        ChefProject $chef,
+        string $chef,
         TypeProjet $type
     ) {
         $this->nom = $nom;
@@ -48,7 +48,7 @@ class Projet {
         return $this->deadline;
     }
 
-    public function getChef(): ChefProject {
+    public function getChef(): string {
         return $this->chef;
     }
 
@@ -95,6 +95,17 @@ class Projet {
 
     public function addTache(Task $tache): void {
         $this->taches[] = $tache;
+    }
+
+    public static function fromObjects(
+        string $nom,
+        string $description,
+        DateTime $dateCreation,
+        DateTime $deadline,
+        string $chef,
+        TypeProjet $type
+    ): self {
+        return new self($nom, $description, $dateCreation, $deadline, $chef, $type);
     }
 }
 

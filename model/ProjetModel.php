@@ -1,7 +1,7 @@
 <?php
 
-include_once '../config/__connction.php';
-
+include_once __DIR__ . '/../config/__connction.php';
+// require_once '../interfaces/projectInterface.php';
 class ProjetModel{
 
     private PDO $conn;
@@ -14,13 +14,20 @@ class ProjetModel{
     public function ajouterProjet(Projet $projet) {
         $requet = "INSERT INTO projets (nom, description, date_creation, date_deadline, nomChefProjet ,TypeProjet ) VALUES (:NOM, :description, :date_creation, :date_deadline, :nameChefProjet , :TypeProjet);";
         $stmt = $this->conn->prepare($requet);
+        $dateCreation = $projet->getDateCreation()->format('Y-m-d');
+        $dateDeadline = $projet->getDeadline()->format('Y-m-d');
+    
+        // Récupération des autres propriétés
+        $nom = $projet->getNom();
+        $description = $projet->getDescription();
+        $type = $projet->getType()->value;
         return $stmt->execute([
-            ':NOM' => $projet->getNom(),
-            ':description' => $projet->getDescription(),
-            ':date_creation' => $projet->getDateCreation(),
-            ':date_deadline' => $projet->getDeadline(),
+            ':NOM' => $nom,
+            ':description' => $description,
+            ':date_creation' => $dateCreation,
+            ':date_deadline' => $dateDeadline,
             ':nameChefProjet' => $projet->getChef(),
-            ':TypeProjet' =>$projet->getType()
+            ':TypeProjet' =>$type
         ]);
     }
     public function affichageProjet(){

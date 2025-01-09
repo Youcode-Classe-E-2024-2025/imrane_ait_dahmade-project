@@ -18,10 +18,21 @@ class projetController {
             return [];
         }
     }
-    public function ajouterProjet(){
+    public function ajouterProjet(Projet $projet){
         
+        $AddDataBase = new ProjetModel ;
+      return  $AddDataBase->ajouterProjet($projet);
+
+    
 
 
+
+    }
+
+    public function suprimerProjet(int $id){
+        $suprimerprojet = new ProjetModel;
+        return $suprimerprojet->suprimerProjet($id);
+        
     }
 
 }
