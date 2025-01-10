@@ -9,12 +9,14 @@ if (isset($_GET['id'])) {
 // Inclusion des fichiers nécessaires
 require_once __DIR__ . '/../model/ProjetModel.php';
 require_once __DIR__ . '/../controller/projetController.php';
+require_once __DIR__ . '/../model/TaskModel.php';
+require_once __DIR__ . '/../controller/tacheController.php';
 
-// Initialisation du contrôleur et récupération des données du projet
 $projetController = new projetController(new ProjetModel());
 $res = $projetController->afficherProjet($idProjet);
 
-// Vérification si le projet existe
+$tacheController = new tacheController(new $taskModel);
+$restache = $tacheController->afficherTaches($idProjet);
 if (!$res) {
     die("Projet introuvable.");
 }
@@ -82,6 +84,9 @@ if (!$res) {
                     </tr>
                 </thead>
                 <tbody id="tasks-list">
+                    
+                    <tr><?php  echo htmlspecialchars($res)  ?></tr>
+                    
                   
                 </tbody>
             </table>

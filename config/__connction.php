@@ -5,6 +5,7 @@ class DataBaseConnection
 {
 
   private static ?DataBaseConnection $instance = null;
+ 
   private PDO $connection;
 
   public function __construct()

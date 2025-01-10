@@ -4,12 +4,11 @@
 require_once __DIR__ . '/config/config.php';
 require_once __DIR__ . '/config/__connction.php';
 
-# entities
+
 require_once __DIR__ . '/entities/User.php';
 require_once __DIR__ . '/enums/TypeUser.php';
 require_once __DIR__ . '/entities/Projet.php';
 require_once __DIR__ . '/enums/TypeProjet.php';
-
 require_once __DIR__ . '/model/UserModel.php';
 require_once __DIR__ . '/controller/AuthnticationController.php';
 require_once __DIR__ . './model/ProjetModel.php';

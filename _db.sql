@@ -75,3 +75,26 @@ INSERT INTO Projets (nom, description, date_creation, date_deadline, nomChefProj
 
 ALTER Table  Projets 
 ADD COLUMN TypeProjet ENUM('public','prive') DEFAULT 'public';
+
+INSERT INTO taches (nom, description, date_creation, date_deadline, statut, id_projet, id_assigné, id_tag, id_categorie) VALUES
+('Configurer le serveur', 'Installation et configuration du serveur cloud.', '2025-01-10', '2025-01-15', 'en_attente', 20, 1, 2, 1),
+('Développer la page d\'accueil', 'Création de la page principale pour le site e-commerce.', '2025-01-01', '2025-01-20', 'en_cours', 20, 2, 1, 3),
+('Tester l\'application', 'Tests de l\'application mobile pour s\'assurer de son bon fonctionnement.', '2025-01-10', '2025-02-01', 'en_attente', 20, 3, 2, 4);
+
+INSERT INTO TAGS (name) VALUES
+('Urgent'),
+('Bug'),
+('Amélioration'),
+('Documentation'),
+('Test'),
+('Développement'),
+('Maintenance');
+
+INSERT INTO categories (name) VALUES
+('Frontend'),
+('Backend'),
+('Infrastructure'),
+('Design'),
+('QA'),
+('DevOps'),
+('R&D');

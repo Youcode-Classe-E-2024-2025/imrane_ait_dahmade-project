@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../model/ProjetModel.php';
 require_once __DIR__ . '/../controller/projetController.php';
 
+
 // Démarrer la session pour accéder aux informations utilisateur
 session_start();
 
