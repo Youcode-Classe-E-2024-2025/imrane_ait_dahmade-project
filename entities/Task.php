@@ -4,19 +4,25 @@ class Task {
     private int $id;
     private string $name;
     private string $description;
+    private DateTime $dateCreation;
+    private DateTime $dateDeadline;
     private Typetask $type;
     private Employee $assignedTo;
     private array $tags = [];
     private Status $status;
+    private category $category;
 
     // Constructor
     public function __construct(
         string $name,
         string $description,
+        DateTime $dateCreation,
+        DateTime $dateDeadline,
         Typetask $type,
         Employee $assignedTo,
         array $tags,
-        Status $status
+        Status $status,
+        category $category
     ) {
         $this->name = $name;
         $this->description = $description;
@@ -24,6 +30,9 @@ class Task {
         $this->assignedTo = $assignedTo;
         $this->tags = $tags;
         $this->status = $status;
+        $this->dateCreation = $dateCreation;
+        $this->dateDeadline = $dateDeadline;
+        $this->category = $category;
     }
 
     public function getId(): ?int {
@@ -41,6 +50,12 @@ class Task {
     public function getType(): Typetask {
         return $this->type;
     }
+    public function getDateCreation():DateTime {
+        return $this->dateCreation;
+    }
+    public function getDateDeadline():DateTime {
+        return $this->dateDeadline;
+    }
 
     public function getAssignedTo(): Employee {
         return $this->assignedTo;
@@ -49,7 +64,9 @@ class Task {
     public function getTags(): array {
         return $this->tags;
     }
-
+    public function getCategory(){
+        return $this->category;
+    }
     public function getStatus(): Status {
         return $this->status;
     }
@@ -85,6 +102,16 @@ class Task {
     public function addTag(Tag $tag): void {
         $this->tags[] = $tag;
     }
+    public function setDateCreation(DateTime $dateCreation){
+        $this->dateCreation = $dateCreation;
+    }
+    public function setDatedeadline(DateTime $dateDeadline){
+        $this->dateCreation = $dateDeadline;
+    }
+    public function setcategory($category) {
+        $this->category =$category;
+    }
 }
+
 
 ?>

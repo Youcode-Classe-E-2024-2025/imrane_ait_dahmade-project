@@ -73,8 +73,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: ./view/chef_projet.php');
         }
     }
-    
-      
+    if(isset($_POST['AfficheProjet'])){
+        $idProjet = intval($_POST['id_projet']);
+      header('Location: ./view/projet.php?id='. $idProjet);
+      exit();
+    }
 }
 
 //************** */

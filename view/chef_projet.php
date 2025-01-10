@@ -78,8 +78,18 @@ $projets = $projetController->afficherProjets($nomUtilisateur);
                                 </form>
                                 <form action="../index.php" method="post">
                                     <input type="hidden" name="id_projet" value="<?php echo htmlspecialchars($projet['id_projet']); ?>">
-                                    <button class="btn btn-primary bg-green-700 hover:bg-green-400 border-none" name="ModifierProjet">
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary bg-green-700 hover:bg-green-400 border-none"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modifierProjetModal<?php echo $projet['id_projet']; ?>">
                                         Modifier le projet
+                                    </button>
+                                </form>
+                                <form action="../index.php" method="post">
+                                    <input type="hidden" name="id_projet" value="<?php echo htmlspecialchars($projet['id_projet']); ?>">
+                                    <button class="btn btn-primary bg-blue-700 hover:bg-blue-400 border-none" name="AfficheProjet">
+                                        details de la projet
                                     </button>
                                 </form>
 
@@ -146,6 +156,81 @@ $projets = $projetController->afficherProjets($nomUtilisateur);
             </div>
         </div>
     </div>
+
+<div class="modal fade" id="modifierProjetModal<?php echo $projet['id_projet']; ?>" tabindex="-1" aria-labelledby="modifierProjetLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modifierProjetLabel">Modifier le Projet</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulaire de modification -->
+                <form action="../index.php" method="POST">
+                    <input type="hidden" name="id_projet" value="<?php echo htmlspecialchars($projet['id_projet']); ?>">
+
+                    <!-- Nom du Projet -->
+                    <div class="mb-3">
+                        <label for="projectName" class="form-label">Nom du Projet :</label>
+                        <input 
+                            type="text" 
+                            id="projectName" 
+                            name="projectName" 
+                            class="form-control" 
+                            value="<?php echo htmlspecialchars($projet['nom']); ?>" 
+                            required>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-3">
+                        <label for="projectDescription" class="form-label">Description :</label>
+                        <textarea 
+                            id="projectDescription" 
+                            name="projectDescription" 
+                            class="form-control" 
+                            required><?php echo htmlspecialchars($projet['description']); ?></textarea>
+                    </div>
+
+                    <!-- Date de Création -->
+                    <div class="mb-3">
+                        <label for="dateCreation" class="form-label">Date de Création :</label>
+                        <input 
+                            type="date" 
+                            id="dateCreation" 
+                            name="dateCreation" 
+                            class="form-control" 
+                            value="<?php echo htmlspecialchars($projet['date_creation']); ?>" 
+                            required>
+                    </div>
+
+                    <!-- Date Limite -->
+                    <div class="mb-3">
+                        <label for="dateDeadline" class="form-label">Date Limite :</label>
+                        <input 
+                            type="date" 
+                            id="dateDeadline" 
+                            name="dateDeadline" 
+                            class="form-control" 
+                            value="<?php echo htmlspecialchars($projet['date_deadline']); ?>" 
+                            required>
+                    </div>
+
+                    <!-- Type de Projet -->
+                    <div class="mb-3">
+                        <label for="type" class="form-label">Type de Projet :</label>
+                        <select id="type" name="type" class="form-select" required>
+                            <option value="public" <?php echo ($projet['type'] === 'public') ? 'selected' : ''; ?>>Public</option>
+                            <option value="prive" <?php echo ($projet['type'] === 'prive') ? 'selected' : ''; ?>>Privé</option>
+                        </select>
+                    </div>
+
+                    <!-- Bouton de soumission -->
+                    <button type="submit" name="modifierProjet" class="btn btn-success">Enregistrer les Modifications</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 
     <!-- Bootstrap JS -->
